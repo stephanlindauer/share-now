@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: share-now-evaluator
+  labels: &Labels
+    app: share-now-evaluator
+    team: platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels: *Labels
+  template:
+    metadata:
+      labels: *Labels
+    spec:
+      containers:
+      - name: share-now-evaluator
+        image: quay.io/stephanlindauer/share-now:main
+      serviceAccountName: share-now-evaluator

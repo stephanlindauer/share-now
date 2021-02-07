@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: share-now-evaluator
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: share-now-evaluator
+rules:
+- apiGroups: ["*"]
+  resources:
+  - pods
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: share-now-evaluator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: share-now-evaluator
+subjects:
+- kind: ServiceAccount
+  name: share-now-evaluator
+  namespace: default
+
+
