@@ -20,6 +20,8 @@ go run main.go --kubeconfig ~/.kube/config
 
 The Docker image is automatically built and pushed to `https://quay.io/repository/stephanlindauer/share-now`.
 
+**Update**: I just found out, that `kind load docker-image my-custom-image` exists. :D
+
 ## How it went
 
 I kept my code relatively simple and strict to just what the code challenge requested. Going further with this project, I would think about the following improvements:
