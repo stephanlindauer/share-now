@@ -13,6 +13,7 @@ RUN chmod +x main
 
 
 FROM alpine:latest as runner
+
 RUN apk add --no-cache ca-certificates
 
 COPY --from=builder /src/main /usr/local/bin/main

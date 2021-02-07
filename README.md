@@ -25,7 +25,7 @@ The Docker image is automatically built and pushed to `https://quay.io/repositor
 I kept my code relatively simple and strict to just what the code challenge requested. Going further with this project, I would think about the following improvements:
 - Tests
 - Prometheus exporter (tracking things like uptime or ratio of uncompliant pods)
-- For local development and easier deployment into Kubernetes cluster (without the detour through a third-party repository), I would build image directly in the cluster (in Kaniko for example).
+- For local development and easier deployment into Kubernetes cluster (without the detour through a third-party repository), I would the build image directly in the cluster (in Kaniko for example).
 - Use `client.CoreV1().Pods("").Watch` instead of continuously polling for all Pods.
 - The Problem Statement suggests that there could be a `yaml` file with configurations for the different evaluation rules. I think it would be cool, to make the application more configurable via this potential config file. I think of something more dynamic like this:
 ```
@@ -38,7 +38,7 @@ I kept my code relatively simple and strict to just what the code challenge requ
 ```
 - The config could also be created as a CRD, but with the current complexity of this tool it seems absurd. :D
 - Properly configure the Pod this application is running in with health/liveness probes, priorities, resource limits and resource requests and so on.
-- Think about if this also could be CronJob resource. After I decided that it only runs every hour, it would be nice to free up those resources in the mean time.
+- Think about if this could also be a CronJob resource. After I decided that it only runs every hour, it would be nice to free up those resources in the mean time.
 - Refine what the evaluator can do. Does it need access to all namespaces?
 - Should it run in the default namespace?
 
